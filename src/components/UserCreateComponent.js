@@ -1,6 +1,11 @@
 import { LitElement, html } from "lit-element";
 
 class UserCreateComponent extends LitElement {
+
+    createRenderRoot() {
+        return this;
+    }
+
     render() {
       return html`
         <div>

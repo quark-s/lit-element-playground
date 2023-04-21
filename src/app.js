@@ -4,16 +4,18 @@ import { appState } from './lib/AppState'
 import { Router } from '@vaadin/router';
 
 import style from './app.css';
+// import pureCss from './pure-min.css';
 
 import './components/header.js';
 import './components/HomeComponent';
 import './components/UserCreateComponent';
 import './components/UserListComponent';
 
+
 // class App extends LitElement {
 class App extends MobxLitElement {
 
-  static get styles() {
+ static get styles() {
     return [style];
   }
   
@@ -21,11 +23,12 @@ class App extends MobxLitElement {
     super();
   }
 
-  // createRenderRoot() {
-  //   return this;
-  // }
+  createRenderRoot() {
+    return this;
+  }
 
   firstUpdated() {
+
 
     // const outlet = this.shadowRoot.getElementById('outlet');
     const outlet = this.renderRoot.querySelector('#outlet');
@@ -40,7 +43,7 @@ class App extends MobxLitElement {
         name: 'userList',
         path: '/users',
         component: 'user-list',       
-      },
+      },    
       {
         name: 'userList',
         path: '/users/create',
@@ -64,15 +67,24 @@ class App extends MobxLitElement {
 
   render() {
 
-    let state = appState.isLoggedIn ? "logged in" : "logged out";
+    let state = appState.isLoggedIn ? "logged in" : "logged out";    
 
     return html`
       <app-header></app-header>
-      <div>Loading Application Component Successfully</div>
-      <div id="outlet"></div>
-      ${state}
+      <div id="content">
+        <div>Loading Application Component Successfully</div>
+        <div id="outlet"></div>
+        ${state}<br />
+        ${appState.accountName}<br />
+        <input type="text" @change="${this.updateAccountName}" />
+      </div>
     `;
   }
+
+  updateAccountName(e){
+    appState.accountName = e.target.value;
+  }
+
 
 }
 

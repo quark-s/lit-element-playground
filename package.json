@@ -15,7 +15,8 @@
     "@adobe/lit-mobx": "^2.1.0",
     "@vaadin/router": "^1.7.5",
     "lit-element": "^3.3.1",
-    "mobx": "^6.9.0"
+    "mobx": "^6.9.0",
+    "purecss": "^3.0.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",

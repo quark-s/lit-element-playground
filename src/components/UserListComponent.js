@@ -1,6 +1,14 @@
 import { LitElement, html } from "lit-element";
 
-class UserListComponent extends LitElement {
+import { MobxLitElement } from '@adobe/lit-mobx';
+import { appState } from '../lib/AppState'
+
+class UserListComponent extends MobxLitElement {
+
+    createRenderRoot() {
+        return this;
+    }
+
     render() {
       return html`
         <div>
@@ -8,7 +16,8 @@ class UserListComponent extends LitElement {
         </div>
         <div>
           <slot></slot>
-        </div>        
+        </div>
+        <button class="pure-button">A Pure Button</button>
       `;
     }
   }

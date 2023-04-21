@@ -4,9 +4,12 @@ class AppState {
 
     isLoggedIn = false;
 
+    accountName = "anonymous";
+
     constructor() {
         makeObservable(this, {
             isLoggedIn: observable,
+            accountName: observable,
             login: action,
             logout: action
         });

@@ -1,3 +1,15 @@
 body {
-    background-color: antiquewhite;
+    background-color: rgb(211, 237, 201);
+}
+
+div#outlet{
+    background-color: yellow;
+}
+
+div#outlet h1{
+    color: blueviolet;
+}
+
+div#content{
+    padding: 20px;
 }
